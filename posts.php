@@ -33,5 +33,6 @@ foreach ($posts as $key => $post) {
     # Fill attributes to variables
     $id = $key;
     $type = $post['type'];
+    $title = $post['title'];
     include 'post.php';
 }
