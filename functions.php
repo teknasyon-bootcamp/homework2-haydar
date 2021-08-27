@@ -49,3 +49,27 @@ EOT;
 
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
 
+ /**
+  *  Get requested PHP file name
+  *  Ex : functions.php
+ */
+$requestedFile = basename($_SERVER['REQUEST_URI']);
+
+/**
+  *  Get current PHP file name
+  *  Ex : functions.php / post.php etc.
+ */
+
+$currentFile = basename(__FILE__);
+
+
+# Prevent to access directly this file 
+if ($requestedFile == $currentFile) {
+   echo "403 Access Forbidden";
+   exit();
+}
+
+# Get Random Post Count
+function getRandomPostCount($min, $max){
+    return rand($min,$max);
+}

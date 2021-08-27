@@ -20,3 +20,18 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+require_once "functions.php";
+
+# Get a random number
+$randomNumber = getRandomPostCount(min: 2, max: 15);
+
+# Get latest posts
+$posts = getLatestPosts($randomNumber);
+
+foreach ($posts as $key => $post) {
+
+    # Fill attributes to variables
+    $id = $key;
+    $type = $post['type'];
+    include 'post.php';
+}

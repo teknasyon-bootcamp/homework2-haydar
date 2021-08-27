@@ -23,3 +23,31 @@
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
 
+require_once "functions.php";
+
+# Set default data, if id, title and type aren't defined.
+if (!isset($id))
+    $id = 1;
+if (!isset($title))
+    $title = "Domates biber patlıcan";
+if (!isset($type))
+    $type = "normal";
+
+# Defines which type by which color
+switch ($type) {
+    case "urgent":
+        $color = "red";
+        break;
+    case "warning":
+        $color = "yellow";
+        break;
+    case "normal":
+        $color = "white";
+        break;
+}
+
+# Print post's datas
+
+echo "<div style=background-color:". $color .">";
+getPostDetails($id, $title); 
+echo "</div>";
